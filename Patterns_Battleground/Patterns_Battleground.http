@@ -1,0 +1,6 @@
+@Patterns_Battleground_HostAddress = http://localhost:5204
+
+GET {{Patterns_Battleground_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
