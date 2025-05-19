@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Creational\Builder\Models\" />
+    <Folder Include="Creational\Builder\Builders\" />
     <Folder Include="test\" />
   </ItemGroup>
 
