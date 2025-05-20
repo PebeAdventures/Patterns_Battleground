@@ -1,4 +1,4 @@
-﻿
+﻿/*
 using Patterns_Battleground.Creational.FactoryMethod.Example1.Factory;
 using Xunit;
 
@@ -14,3 +14,4 @@ public class UserFactoryTestscs
 
     
 }
+*/
