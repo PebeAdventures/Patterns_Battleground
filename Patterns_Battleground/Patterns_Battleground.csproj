@@ -17,6 +17,7 @@
     <Folder Include="Creational\Builder\Example2\" />
     <Folder Include="Creational\Builder\Example3\" />
     <Folder Include="Creational\FactoryMethod\Example1\Tests\" />
+    <Folder Include="Creational\Prototype\OrderConfigurationPrototype\Demo\" />
     <Folder Include="test\" />
   </ItemGroup>
 
