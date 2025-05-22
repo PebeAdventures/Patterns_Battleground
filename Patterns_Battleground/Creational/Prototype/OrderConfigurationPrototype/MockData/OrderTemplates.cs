@@ -54,5 +54,19 @@ namespace Patterns_Battleground.Creational.Prototype.OrderConfigurationPrototype
             },
             department: "Finance"
             );
+
+        public static ServerConfiguration BackupServer => new(
+            name: "Backup Server",
+            [
+                new("CPU", "Xeon Gold"),
+                new("RAM", "128GB ECC"),
+                new("HDD", "4TB RAID")
+            ],
+            [
+                new("Linux", "Debian 12"),
+                new("Bacula", "v9")
+            ],
+            isVirtualized: true
+        );
     }
 }
