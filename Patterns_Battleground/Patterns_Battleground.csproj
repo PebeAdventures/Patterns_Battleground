@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Creational\Prototype\OrderConfigurationPrototype\Demo\**" />
+    <Content Remove="Creational\Prototype\OrderConfigurationPrototype\Demo\**" />
+    <EmbeddedResource Remove="Creational\Prototype\OrderConfigurationPrototype\Demo\**" />
+    <None Remove="Creational\Prototype\OrderConfigurationPrototype\Demo\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.15" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="xunit" Version="2.9.3" />
@@ -17,7 +24,6 @@
     <Folder Include="Creational\Builder\Example2\" />
     <Folder Include="Creational\Builder\Example3\" />
     <Folder Include="Creational\FactoryMethod\Example1\Tests\" />
-    <Folder Include="Creational\Prototype\OrderConfigurationPrototype\Demo\" />
     <Folder Include="test\" />
   </ItemGroup>
 

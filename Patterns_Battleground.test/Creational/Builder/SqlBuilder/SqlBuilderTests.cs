@@ -1,9 +1,7 @@
-﻿
-
-using Patterns_Battleground.Creational.Builder.SqlBuilder.Builders;
+﻿using Patterns_Battleground.Creational.Builder.SqlBuilder.Builders;
 using Xunit;
 
-namespace Patterns_Battleground.Creational.Builder.SqlBuilder
+namespace Patterns_Battleground.test.Creational.Builder.SqlBuilder
 {
     public class SqlBuilderTests
     {
