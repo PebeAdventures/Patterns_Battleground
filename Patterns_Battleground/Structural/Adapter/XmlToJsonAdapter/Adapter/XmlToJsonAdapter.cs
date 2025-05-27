@@ -2,24 +2,30 @@
 using System.Xml.Linq;
 using Newtonsoft.Json;
 using Patterns_Battleground.Structural.Adapter.XmlToJsonAdapter.Legacy;
+using Patterns_Battleground.Structural.Adapter.XmlToJsonAdapter.Services;
 
 namespace Patterns_Battleground.Structural.Adapter.XmlToJsonAdapter.Adapter
 {
     public class XmlToJsonAdapter : IDataProvider
     {
-        public readonly LegacyXmlService legacyXmlService;
+        private readonly CustomerXmlService _customerService;
+        private readonly OrderXmlService _orderService;
+        private readonly DataMerger _merger;
 
-        public XmlToJsonAdapter(LegacyXmlService legacyXmlService)
+        public XmlToJsonAdapter(CustomerXmlService customerService, OrderXmlService orderService, DataMerger merger)
         {
-            this.legacyXmlService = legacyXmlService;
+            _customerService = customerService;
+            _orderService = orderService;
+            _merger = merger;
         }
 
         public string GetDataAsJson()
         {
-            string xml = legacyXmlService.GetDataAsXml();
-            var xDoc = XDocument.Parse(xml);
-            string json = JsonConvert.SerializeXNode(xDoc, Formatting.Indented);
-            return json;
+            var customerXml = _customerService.GetCustomerXml();
+            var orderXml = _orderService.GetOrderXml();
+
+            var unifiedXml = _merger.Merge(XElement.Parse(customerXml), XElement.Parse(orderXml));
+            return JsonConvert.SerializeXNode(unifiedXml, Formatting.Indented);
         }
     }
 }
