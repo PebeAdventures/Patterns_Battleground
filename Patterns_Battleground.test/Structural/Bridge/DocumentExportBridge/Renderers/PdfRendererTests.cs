@@ -15,7 +15,7 @@ namespace Patterns_Battleground.test.Structural.Bridge.DocumentExportBridge.Rend
             // Arrange
             var content = "Sample content";
             var renderer = new PdfRenderer();
-            var expected = "[PDF Document]\nSample content\n[/PDF Document]";
+            var expected = "[PDF Document]Sample content[/PDF Document]";
 
             // Act
             var result = renderer.Render(content);

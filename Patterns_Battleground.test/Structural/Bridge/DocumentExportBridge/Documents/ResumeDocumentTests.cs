@@ -18,7 +18,7 @@ namespace Patterns_Battleground.test.Structural.Bridge.DocumentExportBridge.Docu
             // Arrange
             var renderer = new PdfRenderer();
             var document = new ResumeDocument(DocumentData.ResumeContent, renderer);
-            var expected = $"[PDF Document]\n{DocumentData.ResumeContent}\n[/PDF Document]";
+            var expected = $"[PDF Document]{DocumentData.ResumeContent}[/PDF Document]";
 
             // Act
             var result = document.Export();

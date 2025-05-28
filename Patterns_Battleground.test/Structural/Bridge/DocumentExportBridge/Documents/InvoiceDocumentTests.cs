@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using Patterns_Battleground.Structural.Bridge.DocumentExportBridge.Abstractions;
 using Patterns_Battleground.Structural.Bridge.DocumentExportBridge.Implementations;
 using Patterns_Battleground.test.Structural.Bridge.DocumentExportBridge.MockData;
@@ -17,7 +13,7 @@ namespace Patterns_Battleground.test.Structural.Bridge.DocumentExportBridge.Docu
             // Arrange
             var renderer = new PdfRenderer();
             var document = new InvoiceDocument(DocumentData.InvoiceContent, renderer);
-            var expected = $"[PDF Document]\n{DocumentData.InvoiceContent}\n[/PDF Document]";
+            var expected = $"[PDF Document]{DocumentData.InvoiceContent}[/PDF Document]";
 
             // Act
             var result = document.Export();

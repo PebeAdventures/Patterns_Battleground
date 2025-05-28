@@ -4,7 +4,7 @@
     {
         public string Render(string content)
         {
-            return $"<html><body>\n{content}\n</body></html>";
+            return $"<html><body>{content}</body></html>";
         }
     }
 }

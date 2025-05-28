@@ -4,7 +4,7 @@
     {
         public string Render(string content)
         {
-            return $"[PDF Document]\n{content}\n[/PDF Document]";
+            return $"[PDF Document]{content}[/PDF Document]";
         }
     }
 }
