@@ -2,6 +2,6 @@
 {
     public interface IValidator
     {
-        ValidationResult Validate(string input);
+        ValidatorResult Validate(string input);
     }
 }

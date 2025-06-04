@@ -1,6 +1,6 @@
 ﻿using Patterns_Battleground.Structural.Composite.ValidatorComposite.Abstractions;
 
-namespace Patterns_Battleground.Structural.Composite.ValidatorComposite.Composites
+namespace Patterns_Battleground.Structural.Composite.ValidatorComposite.Validators
 {
     public class MinLengthValidator : IValidator
     {
@@ -14,14 +14,14 @@ namespace Patterns_Battleground.Structural.Composite.ValidatorComposite.Composit
             _minLength = minLength;
         }
 
-        public ValidationResult Validate(string input)
+        public ValidatorResult Validate(string input)
         {
             if(input == null)
                 throw new ArgumentNullException(nameof(input), "Input cannot be null");
 
             return input.Length >= _minLength
-                ? ValidationResult.Success()
-                : ValidationResult.Failure($"Input must be at least {_minLength} characters long. Current length: {input.Length}.");
+                ? ValidatorResult.Success()
+                : ValidatorResult.Failure($"Input must be at least {_minLength} characters long. Current length: {input.Length}.");
         }
     }
 }
