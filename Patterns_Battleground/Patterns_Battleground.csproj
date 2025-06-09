@@ -25,7 +25,6 @@
     <Folder Include="Creational\Builder\Example2\" />
     <Folder Include="Creational\Builder\Example3\" />
     <Folder Include="Creational\FactoryMethod\Example1\Tests\" />
-    <Folder Include="Structural\Decorator\" />
     <Folder Include="Structural\Facade\" />
     <Folder Include="Structural\Flyweight\" />
     <Folder Include="Structural\Proxy\" />
