@@ -11,6 +11,6 @@ public class VatDecorator : PriceCalculatorDecorator
     public override Price CalculatePrice(Product product)
     {
         var basePrice = _inner.CalculatePrice(product);
-        return new Price(basePrice.Amount * _vatRate);
+        return new Price(basePrice.Amount * (1 + _vatRate), basePrice.Label);
     }
 }
