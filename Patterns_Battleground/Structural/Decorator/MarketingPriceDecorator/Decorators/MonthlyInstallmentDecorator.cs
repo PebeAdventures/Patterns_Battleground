@@ -8,6 +8,8 @@ public class MonthlyInstallmentDecorator : PriceCalculatorDecorator
     private readonly decimal _interestRate;
     public MonthlyInstallmentDecorator(IPriceCalculator inner, int numberOfInstallments, decimal interestRate = 0) : base(inner)
     {
+        if(numberOfInstallments <= 0) throw new ArgumentOutOfRangeException(nameof(numberOfInstallments), "number of installments must be greather then zero.");
+        if(interestRate < 0) throw new ArgumentOutOfRangeException(nameof(numberOfInstallments), "interest rate cannot be negative.");
         _numberOfInstallments = numberOfInstallments;
         _interestRate = interestRate;
     }

@@ -6,7 +6,14 @@ public class LoyaltyPointsDecorator : PriceCalculatorDecorator
 {
     private readonly decimal _pointsRate;
 
-    public LoyaltyPointsDecorator(IPriceCalculator inner, decimal pointsRate = 100): base(inner) => _pointsRate = pointsRate;
+    public LoyaltyPointsDecorator(IPriceCalculator inner, decimal pointsRate = 100) : base(inner)
+    {
+        if(pointsRate <= 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(pointsRate),$" Loyalty points rate must be greather then 0.");
+        }
+        _pointsRate = pointsRate;
+    }
 
     public override Price CalculatePrice(Product product)
     {

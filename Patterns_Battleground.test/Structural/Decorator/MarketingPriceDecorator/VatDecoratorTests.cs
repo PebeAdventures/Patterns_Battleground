@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Patterns_Battleground.test.Structural.Decorator.MarketingPriceDecorator
 {
-    internal class VatDecoratorTests
+    public class VatDecoratorTests
     {
     }
 }
