@@ -8,10 +8,8 @@ public class LoyaltyPointsDecorator : PriceCalculatorDecorator
 
     public LoyaltyPointsDecorator(IPriceCalculator inner, decimal pointsRate = 100) : base(inner)
     {
-        if(pointsRate <= 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(pointsRate),$" Loyalty points rate must be greather then 0.");
-        }
+        if(pointsRate <= 0) throw new ArgumentOutOfRangeException(nameof(pointsRate), "Loyalty points rate must be greather then 0.");
+
         _pointsRate = pointsRate;
     }
 
