@@ -6,7 +6,7 @@ using Patterns_Battleground.Structural.Adapter.XmlToJsonAdapter.Legacy;
 using Patterns_Battleground.Structural.Adapter.XmlToJsonAdapter.Services;
 using Patterns_Battleground.test.Structural.Adapter.XmlToJsonAdapter.MockData;
 
-namespace Patterns_Battleground.test.Structural.Adapter.XmlToJsonAdapterTests;
+namespace Patterns_Battleground.test.Structural.Adapter.XmlToJsonAdapter;
 
 public class XmlToJsonAdapterTests
 {
