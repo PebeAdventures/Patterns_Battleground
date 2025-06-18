@@ -1,8 +1,6 @@
 ﻿
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
-using Patterns_Battleground.Structural.Adapter.XmlToJsonAdapter.Adapter;
-using Patterns_Battleground.Structural.Adapter.XmlToJsonAdapter.Legacy;
 using Patterns_Battleground.Structural.Adapter.XmlToJsonAdapter.Services;
 using Patterns_Battleground.test.Structural.Adapter.XmlToJsonAdapter.MockData;
 
