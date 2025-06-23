@@ -46,7 +46,7 @@ namespace Patterns_Battleground.test.Structural.LogisticLabelFlyweight
         }
 
         [Fact]
-        public void GetLabel_WhenCallGetLabelWhenTwoExistedParameters_ShouldCreateNewLabel()
+        public void GetLabel_WhenCallGetLabelWhenTwoKeyDiffers_ShouldCreateNewLabel()
         {
             //Arrange
             LabelFlyweightFactory labelFactory = new();
@@ -57,25 +57,68 @@ namespace Patterns_Battleground.test.Structural.LogisticLabelFlyweight
             var secondCreatedLabel = labelFactory.GetLabel("LABEL2", "ICON", "BLUE");
 
             //Assert
-            Assert.NotEqual(createdLabel, secondCreatedLabel);
+            Assert.NotSame(createdLabel, secondCreatedLabel);
         }
 
         [Fact]
-        public void GetLabel_WhenCallGetLabelWhenOneExistedParameters_ShouldCreateNewLabel()
+        public void GetLabel_WhenCallGetLabelWhenOneKeyDiffers_ShouldCreateNewLabel()
         {
             //Arrange
             LabelFlyweightFactory labelFactory = new();
             
             //Act
             // create label that should exist in label list - instead of creating, should return existing object.
-            var createdLabel = labelFactory.GetLabel("LABEL2", "ICON", "RED");
-            var secondCreatedLabel = labelFactory.GetLabel("LABEL3", "ICON", "BLUE");
-            var thirdCreatedLabel = labelFactory.GetLabel("LABEL3", "ICON", "BLUE");
+            var createdLabel = labelFactory.GetLabel("LABEL1", "ICON", "RED");
+            var secondCreatedLabel = labelFactory.GetLabel("LABEL2", "ICON", "BLUE");
+            var thirdCreatedLabel = labelFactory.GetLabel("LABEL2", "ICON", "BLUE");
 
             //Assert
-            Assert.NotEqual(createdLabel, secondCreatedLabel);
+            Assert.NotSame(createdLabel, secondCreatedLabel);
             Assert.Same(secondCreatedLabel, thirdCreatedLabel);
         }
 
+        [Fact]
+        public void GetLabel_WhenCalledMultipleTimes_ShouldReturnSameInstance()
+        {
+            //Arrange
+            LabelFlyweightFactory labelFactory = new();
+
+            //Act
+            var firstLabel = labelFactory.GetLabel("LABEL1", "ICON", "RED");
+            var secondLabel = labelFactory.GetLabel("LABEL1", "ICON", "RED");
+            var thirdLabel = labelFactory.GetLabel("LABEL1", "ICON", "RED");
+
+            //Assert
+            Assert.Same(firstLabel, secondLabel);
+            Assert.Same(secondLabel, thirdLabel);
+        }
+
+        [Fact]
+        public async Task GetLabel_WhenCalledConcurrently_ShouldReturnSameInstance()
+        {
+            //Arrange
+            LabelFlyweightFactory labelFactory = new();
+            var labels = new ILabelFlyweight[100];
+            var tasks = new List<Task>();
+
+            //Act
+            for(int i = 0; i < 100; i++)
+            {
+                int index = i;
+                tasks.Add(Task.Run(() =>
+                {
+                    labels[index] = labelFactory.GetLabel("LABEL1", "ICON", "RED");
+                }));
+            }
+            await Task.WhenAll(tasks);
+            //Assert
+            var reference = labels[0];
+
+            foreach(var label in labels)
+            {
+                Assert.Same(reference, label);
+            }
+
+        }
     }
 }
