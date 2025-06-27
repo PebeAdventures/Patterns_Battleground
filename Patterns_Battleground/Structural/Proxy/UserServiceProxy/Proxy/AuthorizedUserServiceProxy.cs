@@ -4,12 +4,12 @@ using Patterns_Battleground.Structural.Proxy.UserServiceProxy.Services;
 
 namespace Patterns_Battleground.Structural.Proxy.UserServiceProxy.Proxy
 {
-    public class UserServiceProxy : IUserService
+    public class AuthorizedUserServiceProxy : IUserService
     {
         private readonly IUserService _userService;
         private readonly ITokenValidator _tokenValidator;
 
-        public UserServiceProxy(IUserService userService, ITokenValidator tokenValidator)
+        public AuthorizedUserServiceProxy(IUserService userService, ITokenValidator tokenValidator)
         {
             _userService = userService;
             _tokenValidator = tokenValidator;

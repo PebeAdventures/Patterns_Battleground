@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Patterns_Battleground.Structural.Flyweight.LogisticLabelsFlyweight.Core;
 
-namespace Patterns_Battleground.test.Structural.LogisticLabelFlyweight
+namespace Patterns_Battleground.test.Structural.Flyweight.LogisticLabelFlyweight
 {
     public class LogisticLabelFlyweightTests
     {
