@@ -111,7 +111,7 @@ The project is in active development.
 ## 🤝 Contribution & Contact
 
 Ideas, suggestions or want to collaborate?  
-Contact: **piotr.bujak.dev [at] gmail.com** or [LinkedIn](https://www.linkedin.com/in/piotr-bujak)
+Contact: **pi0tr.buj4k [at] gmail.com** or [LinkedIn](https://www.linkedin.com/in/piotr-bujak)
 
 ---
 
