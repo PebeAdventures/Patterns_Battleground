@@ -56,4 +56,21 @@ public class UserServiceProxyTests
         //Act & Assert
         Assert.Throws<UnauthorizedAccessException>(() => proxyUserService.GetProfile("userId", incorrectToken));
     }
+
+    [Fact]
+    public void Test()
+    {
+        //Arrange
+        var test = "1";
+        var test2 = "2";
+        string nullVar = null;
+
+        Assert.Null(nullVar);
+        nullVar ??= test;
+        Assert.Equal(nullVar, test);
+        nullVar ??= test2;
+        Assert.Equal(nullVar, test);
+
+
+    }
 }
