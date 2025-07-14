@@ -1,4 +1,4 @@
-﻿
+﻿/*
 using System.Text;
 
 namespace Patterns_Battleground.Behavioral.ChainOfResponsibility.StoryWorkflowChain.Core;
@@ -34,8 +34,9 @@ public class StoryPromtBuilder
         sb.AppendLine($"[Genre]: {ctx.Genre}");
         sb.AppendLine($"[Tone]: {ctx.Tone}");
         sb.AppendLine();
-        sb.AppendLine("ased on the context above, generate a story that is engaging, appropriate for the selected age group, and follows the selected style and genre.");
+        sb.AppendLine("based on the context above, generate a story that is engaging, appropriate for the selected age group, and follows the selected style and genre.");
 
         return sb.ToString();
     }
 }
+*/

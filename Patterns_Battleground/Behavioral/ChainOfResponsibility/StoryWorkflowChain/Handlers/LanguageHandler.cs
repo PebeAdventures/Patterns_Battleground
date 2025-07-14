@@ -2,18 +2,18 @@
 
 namespace Patterns_Battleground.Behavioral.ChainOfResponsibility.StoryWorkflowChain.Handlers
 {
-    public class StoryTypeHandler : StoryWorkflowHandler
+    public class LanguageHandler : StoryWorkflowHandler
     {
         public override StoryContext Handle(StoryContext context)
         {
-            if (context.StoryType == "Book" && !context.IsPremiumUser) 
+            if (context.Language != "English" && !context.IsPremiumUser)
             {
-                context.Block("Generating books is available only for premium users.");
+                context.Block($"{context.Language} langueage is available only for premium users");
                 return context;
             }
-
-            context.Prompt += $"Story type: {context.StoryType}";
+            context.Prompt += $"Language: {context.Language}";
             return base.Handle(context);
         }
+
     }
 }
