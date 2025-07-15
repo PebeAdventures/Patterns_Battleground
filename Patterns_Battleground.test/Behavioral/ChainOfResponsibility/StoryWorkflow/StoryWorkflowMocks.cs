@@ -10,7 +10,30 @@ namespace Patterns_Battleground.test.Behavioral.ChainOfResponsibility.StoryWorkf
 
 public static class StoryWorkflowMocks
 {
+    public static StoryContext PremiumUserPartialData => new()
+    {
+        StoryType = "Story",
+        Language = "English",
+        AgeGroup = "15+",
+        IsPremiumUser = true
+    };
+    public static StoryContext FreeUserPartialData => new()
+    {
+        StoryType = "Story",
+        Language = "English",
+        AgeGroup = "15+",
+        IsPremiumUser = false
+    };
     public static StoryContext PremiumUserPolish => new()
+    {
+        StoryType = "Story",
+        Language = "Polish",
+        AgeGroup = "15+",
+        Tone = "Dark",
+        Genre = "Horror",
+        IsPremiumUser = true
+    };
+    public static StoryContext PremiumUserBookPolish => new()
     {
         StoryType = "Book",
         Language = "Polish",
@@ -22,7 +45,7 @@ public static class StoryWorkflowMocks
 
     public static StoryContext FreeUserPolish => new()
     {
-        StoryType = "Book",
+        StoryType = "Story",
         Language = "Polish",
         AgeGroup = "15+",
         Tone = "Dark",
@@ -30,7 +53,7 @@ public static class StoryWorkflowMocks
         IsPremiumUser = false
     };
 
-    public static StoryContext PremiumUserEnglish => new()
+    public static StoryContext PremiumUserBookEnglish => new()
     {
         StoryType = "Book",
         Language = "English",
@@ -40,7 +63,7 @@ public static class StoryWorkflowMocks
         IsPremiumUser = true
     };
 
-    public static StoryContext FreeUserEnglish => new()
+    public static StoryContext FreeUserBookEnglish => new()
     {
         StoryType = "Book",
         Language = "English",
@@ -49,9 +72,35 @@ public static class StoryWorkflowMocks
         Genre = "Horror",
         IsPremiumUser = false
     };
+    public static StoryContext FreeUserEnglish => new()
+    {
+        StoryType = "Story",
+        Language = "English",
+        AgeGroup = "15+",
+        Tone = "Dark",
+        Genre = "Horror",
+        IsPremiumUser = false
+    };
+    public static StoryContext PremiumUserEnglish => new()
+    {
+        StoryType = "Story",
+        Language = "English",
+        AgeGroup = "15+",
+        Tone = "Dark",
+        Genre = "Horror",
+        IsPremiumUser = true
+    };
 
-    public static IStoryWorkflowHandler BasicWorkflowChain =>
+    public static IStoryWorkflowHandler PartialWorkflowChain =>
         new StoryTypeHandler()
+            .SetNext(new LanguageHandler())
+            .SetNext(new ToneHandler())
+            .SetNext(new GenreHandler())
+            .SetNext(new PromtBuilderHandler());
+
+    public static IStoryWorkflowHandler FullWorkflowChain =>
+        new StoryTypeHandler()
+            .SetNext(new AgeHandler())
             .SetNext(new LanguageHandler())
             .SetNext(new ToneHandler())
             .SetNext(new GenreHandler())

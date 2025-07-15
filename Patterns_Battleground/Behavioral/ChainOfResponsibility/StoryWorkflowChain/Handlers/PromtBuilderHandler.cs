@@ -9,9 +9,26 @@ public class PromtBuilderHandler : StoryWorkflowHandler
         if (context.IsBlocked)
             return context;
 
-        var prompt = $"Create a {context.StoryType.ToLower()} in {context.Language} " +
-                     $"for age group {context.AgeGroup}, with a {context.Tone.ToLower()} tone " +
-                     $"and {context.Genre.ToLower()} theme.";
+
+        var segments = new List<string>();
+
+        if (!string.IsNullOrWhiteSpace(context.StoryType))
+            segments.Add($"a {context.StoryType.ToLower()}");
+
+        if (!string.IsNullOrWhiteSpace(context.Language))
+            segments.Add($"in {context.Language}");
+
+        if (!string.IsNullOrWhiteSpace(context.AgeGroup))
+            segments.Add($"for age group {context.AgeGroup}");
+
+        if (!string.IsNullOrWhiteSpace(context.Tone))
+            segments.Add($"with a {context.Tone.ToLower()} tone");
+
+        if (!string.IsNullOrWhiteSpace(context.Genre))
+            segments.Add($"and {context.Genre.ToLower()} theme");
+
+        var prompt = "Create " + string.Join(", ", segments) + ".";
+
         context.Prompt = prompt ;
         return base.Handle(context);
     }
